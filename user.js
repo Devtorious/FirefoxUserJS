@@ -34,38 +34,50 @@ user_pref("gfx.webrender.compositor", true);
 user_pref("layers.gpu-process.enabled", true);
 user_pref("media.hardware-video-decoding.enabled", true);
 user_pref("gfx.canvas.accelerated", true);
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
-user_pref("gfx.content.skia-font-cache-size", 80);
+user_pref("gfx.canvas.accelerated.cache-items", 4096);
+user_pref("gfx.canvas.accelerated.cache-size", 512);
+user_pref("gfx.content.skia-font-cache-size", 20);
 user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 131072);
+user_pref("image.mem.decode_bytes_at_a_time", 32768);
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
-user_pref("media.memory_cache_max_size", 1048576);
+user_pref("media.memory_cache_max_size", 65536);
 user_pref("media.memory_caches_combined_limit_kb", 2560000);
-user_pref("media.cache_readahead_limit", 9000);
-user_pref("media.cache_resume_threshold", 6000);
+user_pref("media.cache_readahead_limit", 7200);
+user_pref("media.cache_resume_threshold", 3600);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.memory.max_entry_size", 153600);
+user_pref("browser.cache.jsbc_compression_level", 3);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
 user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
+	user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.ssl_tokens_cache_capacity", 32768);
+user_pref("network.dns.echconfig.enabled", true);
+user_pref("network.dns.http3_echconfig.enabled", true);
+user_pref("network.trr.mode", 3);
+user_pref("network.dns.use_https_rr_as_altsvc", true);
+user_pref("network.http.pacing.requests.enabled", false);
+user_pref("network.dnsCacheExpiration", 3600);
+user_pref("network.dns.max_high_priority_threads", 8);
+user_pref("network.ssl_tokens_cache_capacity", 10240);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("cookiebanners.service.enableGlobalRules", true);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
@@ -85,7 +97,6 @@ user_pref("browser.sessionstore.privacy_level", 2);
 
 /** SHUTDOWN & SANITIZING ***/
 user_pref("privacy.history.custom", true);
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.http.speculative-parallel-limit", 0);
@@ -95,11 +106,6 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
-user_pref("network.dns.echconfig.enabled", true);
-user_pref("network.dns.use_https_rr_as_altsvc", true);
-user_pref("network.dns.http3_echconfig.enabled", true);
-user_pref("network.trr.mode", 3);
-user_pref("network.dns.use_https_rr_as_altsvc", true);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
@@ -214,6 +220,12 @@ user_pref("browser.aboutwelcome.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("middlemouse.contentLoadURL", false);
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
+user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.display.focus_ring_on_anything", true);
+user_pref("browser.display.focus_ring_style", 0);
+user_pref("browser.display.focus_ring_width", 0);
+user_pref("layout.word_select.eat_space_to_next_word", false);
+
 
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -226,6 +238,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
+user_pref("browser.urlbar.trending.featureGate", false);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
@@ -247,8 +260,10 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("layout.css.has-selector.enabled", true);
+user_pref("browser.menu.showViewImageInfo", true);
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+user_pref("browser.privateWindowSeparation.enabled", false);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
@@ -260,7 +275,7 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
 // Enter your personal prefs below this line:
-
+user_pref("dom.security.sanitizer.enabled", true);
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
